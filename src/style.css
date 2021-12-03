@@ -78,8 +78,7 @@ main {
     gap: 3rem;
 }
 
-.hero,
-.menu {
+.hero {
     max-height: 700px;
 }
 
@@ -152,11 +151,8 @@ main {
 
 /* --- menu --- */
 
-.menu-table-container {
-    flex: 1;
-}
-
 .menu-table {
+    flex: 0 1 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
@@ -165,27 +161,8 @@ main {
 .menu-item {
     background-color: white;
     border-radius: 10px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-}
-
-.menu-image {
-    max-height: 200px;
-    overflow: hidden;
-}
-
-.menu-image img {
-    margin-top: -40%;
-    width: 100%;
-    display: none;
-}
-
-.menu-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
     padding: 10px;
 }
 
@@ -358,10 +335,6 @@ button {
         display: grid;
         grid-template-columns: 1fr;
         grid-auto-rows: 1fr;
-    }
-
-    .menu-image img {
-        margin-top: -20%;
     }
 
     .contact-table {
