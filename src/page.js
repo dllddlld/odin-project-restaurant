@@ -38,18 +38,14 @@ const TEXT = {
             'to design the best menu for the night. This is a dinner-only menu and ' +
             'will be served throughout the course of 2-3 hours.'
         }
-    }
+    },
+    GOODBYE: 'We hope to see you soon!'
 };
 
 function createPage() {
     createHeader();
     createMain();
     createFooter();
-}
-
-function initializeHomePage() {
-    let homeButton = document.querySelector('#button-home');
-    homeButton.click();
 }
 
 function createHeader() {
@@ -63,19 +59,10 @@ function createHeader() {
     
     let homeButton = makeElement('button', ['nav-page', 'active'], 'Home', navOptions);
     homeButton.id = 'button-home';
-    homeButton.addEventListener('click', function() {
-        navButtonEvent.bind(this)(createHomePage);
-    });
     let menuButton = makeElement('button', ['nav-page'], 'Menu', navOptions);
-    menuButton.id = 'button-menu';
-    menuButton.addEventListener('click', function() {
-        navButtonEvent.bind(this)(createMenuPage);
-    });
+    menuButton.id = 'button-menu';    
     let contactButton = makeElement('button', ['nav-page'], 'Contact us', navOptions);
     contactButton.id = 'button-contact';
-    contactButton.addEventListener('click', function() {
-        navButtonEvent.bind(this)(createContactPage);
-    });
 }
 
 function createMain() {
@@ -89,93 +76,6 @@ function createFooter() {
     makeElement('div', null, 'Github repository', footer);
     makeElement('div', null, 'Icons by icons8', footer);
     makeElement('div', null, 'Photography by Brooke Lark', footer);
-}
-
-function navButtonEvent(navBtnFunction) {
-    console.log('this in nav button event', this);
-    navBtnFunction();
-    toggleButtons(this);
-}
-
-function createHomePage() {
-    let main = document.querySelector('main');
-    main.textContent = '';
-
-    let hero = makeElement('div', ['hero'], null, main);
-    
-    let slogan = makeElement('div', ['slogan'], null, hero);
-    makeElement('h1', null, TEXT.COMPANY_SLOGAN, slogan);
-    makeElement('p', null, TEXT.COMPANY_MISSION, slogan);
-    let sloganButtonDiv = makeElement('div', null, null, slogan);
-    let sloganButton = makeElement('button', ['get-started'], 'Get Started', sloganButtonDiv);
-    sloganButton.addEventListener('click', function() {
-        let menuButton = document.querySelector('#button-menu');
-        menuButton.click();
-    });
-
-    let heroImageContainer = makeElement('div', ['hero-image-container'], null, hero);
-    let heroImageDiv = makeElement('div', ['hero-image'], null, heroImageContainer);
-    let heroImage = makeElement('img', null, null, heroImageDiv);
-    heroImage.src = '../src/images/food-table.jpg';
-
-    let heroBubbleContainer = makeElement('div', ['hero-bubble-container'], null, heroImageContainer);
-    let heroBubbleCustomer = makeElement('div', ['hero-bubble'], TEXT.CUSTOMER_BUBBLE, heroBubbleContainer);
-    heroBubbleCustomer.dataset.reviewType = 'customer';
-    let heroBubbleWinner = makeElement('div', ['hero-bubble'], TEXT.WINNER_BUBBLE, heroBubbleContainer);
-    heroBubbleWinner.dataset.reviewType = 'winner';
-
-    let certifications = makeElement('div', ['certifications'], null, main);
-    let certificationPoints = [
-        {imageSource: '../src/images/food-service.png', text: TEXT.FOOD_SERVICE_POINT},
-        {imageSource: '../src/images/vegan.png', text: TEXT.VEGAN_POINT},
-        {imageSource: '../src/images/vegetables-bag.png', text: TEXT.LOCAL_POINT},
-    ];
-    certificationPoints.forEach(item => {
-        let point = makeElement('div', ['point'], null, certifications);
-        let imageDiv = makeElement('div', null, null, point);
-        let image = makeElement('img', null, null, imageDiv);
-        image.src = item.imageSource;
-        let commentDiv = makeElement('div', null, null, point);
-        makeElement('p', null, item.text, commentDiv);
-    });
-}
-
-function createMenuPage() {
-    let main = document.querySelector('main');
-    main.textContent = '';
-    let menu = makeElement('div', ['menu'], null, main);
-    let menuTableDiv = makeElement('div', null, null, menu);
-    makeElement('div', ['menu-table'], null, menuTableDiv);
-    makeMenuItem(TEXT.MENU.SURPRISE_ME.TITLE, TEXT.MENU.SURPRISE_ME.PRICE, TEXT.MENU.SURPRISE_ME.DESCRIPTION);
-    makeMenuItem(TEXT.MENU.FEED_ME.TITLE, TEXT.MENU.FEED_ME.PRICE, TEXT.MENU.FEED_ME.DESCRIPTION);
-    makeMenuItem(TEXT.MENU.DINE_ME.TITLE, TEXT.MENU.DINE_ME.PRICE, TEXT.MENU.DINE_ME.DESCRIPTION);
-    makeMenuItem(TEXT.MENU.INDULGE_ME.TITLE, TEXT.MENU.INDULGE_ME.PRICE, TEXT.MENU.INDULGE_ME.DESCRIPTION);
-}
-
-function createContactPage() {
-    let main = document.querySelector('main');
-    main.textContent = '';
-}
-
-function toggleButtons(button) {
-    console.log('button pressed', button);
-    let navButtons = document.querySelectorAll('.nav-page');
-    navButtons.forEach(navButton => {
-        if (navButton !== button) {
-            navButton.classList.remove('active');
-            navButton.disabled = false;
-        }
-    });
-    button.classList.add('active');
-    button.disabled = true;
-}
-
-function makeMenuItem(title, price, description) {
-    let menuTable = document.querySelector('.menu-table');
-    let menuItem = makeElement('div', ['menu-item'], null, menuTable);
-    makeElement('div', ['menu-title'], title, menuItem);
-    makeElement('div', ['menu-price'], price, menuItem);
-    makeElement('div', ['menu-description'], description, menuItem);
 }
 
 function makeElement(type, classes, text, parent) {
@@ -194,4 +94,4 @@ function makeElement(type, classes, text, parent) {
     return el;
 }
 
-export { createPage, initializeHomePage };
+export { TEXT, createPage, makeElement };
