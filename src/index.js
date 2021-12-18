@@ -1,2 +1,5 @@
 import './style.css';
-console.log('Connected JS file to HTML');
+import { createPage, initializeHomePage } from './page.js';
+
+createPage();
+initializeHomePage();

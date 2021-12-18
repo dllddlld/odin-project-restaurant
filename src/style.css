@@ -258,9 +258,15 @@ button {
     font-family: inherit;
     font-size: inherit;
     background: none;
+    cursor: pointer;
 }
 
-#get-started {
+button.active {
+    text-decoration: underline;
+    cursor: auto;
+}
+
+.get-started {
     padding: 20px;
     border-radius: 10px;
     font-size: 20px;
