@@ -99,6 +99,8 @@ function navButtonEvent(navBtnFunction) {
 
 function createHomePage() {
     let main = document.querySelector('main');
+    main.textContent = '';
+
     let hero = makeElement('div', ['hero'], null, main);
     
     let slogan = makeElement('div', ['slogan'], null, hero);
@@ -106,6 +108,10 @@ function createHomePage() {
     makeElement('p', null, TEXT.COMPANY_MISSION, slogan);
     let sloganButtonDiv = makeElement('div', null, null, slogan);
     let sloganButton = makeElement('button', ['get-started'], 'Get Started', sloganButtonDiv);
+    sloganButton.addEventListener('click', function() {
+        let menuButton = document.querySelector('#button-menu');
+        menuButton.click();
+    });
 
     let heroImageContainer = makeElement('div', ['hero-image-container'], null, hero);
     let heroImageDiv = makeElement('div', ['hero-image'], null, heroImageContainer);
