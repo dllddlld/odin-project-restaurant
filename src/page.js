@@ -7,7 +7,38 @@ const TEXT = {
     WINNER_BUBBLE: 'This is another text bubble',
     FOOD_SERVICE_POINT: 'Our servers practice social distancing to ensure you and your guests have a comfortable dining experience.',
     VEGAN_POINT: 'We try our best to accommodate our diners\' dietary requirements.',
-    LOCAL_POINT: 'We believe is supporting local farmers and producers. We strive to source locally whenever possible.'
+    LOCAL_POINT: 'We believe is supporting local farmers and producers. We strive to source locally whenever possible.',
+    MENU: {
+        SURPRISE_ME: {
+            TITLE: 'Surprise Me',
+            PRICE: '$65 per head',
+            DESCRIPTION: 'Our Surprise Me menu is a shared banquet-style feast ' + 
+            'that features a daily selection of the markets\' best and freshest, ' +
+            'selected by our executive chef. At least 3 dishes will be served for ' +
+            'each course and will include vegetable-based, seafood and meat options.'
+        },
+        FEED_ME: {
+            TITLE: 'Feed Me',
+            PRICE: '$80 per head',
+            DESCRIPTION: 'Our Feed Me menu starts with a shared entree, followed ' +
+            'by an a la carte main and finishing with a banquet-style dessert table ' +
+            'and cheese platters. Main options are a selection of vegetable-based, seafood and meat dishes.'
+        },
+        DINE_ME: {
+            TITLE: 'Dine Me',
+            PRICE: '$90 per head',
+            DESCRIPTION: 'Our Dine Me menu is an all a la carte menu, with your choice of entree, main and dessert. ' +
+            'Entree and main options are a selection of vegetable-based, seafood and meat dishes.'
+        },
+        INDULGE_ME: {
+            TITLE: 'Indulge Me',
+            PRICE: 'Min. $105 per head, final price may vary',
+            DESCRIPTION: 'Our Indulge Me menu is a degustation-style menu designed in ' +
+            'consultation with our executive chef and our sommeliers. We will contact you ' +
+            'to design the best menu for the night. This is a dinner-only menu and ' +
+            'will be served throughout the course of 2-3 hours.'
+        }
+    }
 };
 
 function createPage() {
@@ -106,6 +137,13 @@ function createHomePage() {
 function createMenuPage() {
     let main = document.querySelector('main');
     main.textContent = '';
+    let menu = makeElement('div', ['menu'], null, main);
+    let menuTableDiv = makeElement('div', null, null, menu);
+    makeElement('div', ['menu-table'], null, menuTableDiv);
+    makeMenuItem(TEXT.MENU.SURPRISE_ME.TITLE, TEXT.MENU.SURPRISE_ME.PRICE, TEXT.MENU.SURPRISE_ME.DESCRIPTION);
+    makeMenuItem(TEXT.MENU.FEED_ME.TITLE, TEXT.MENU.FEED_ME.PRICE, TEXT.MENU.FEED_ME.DESCRIPTION);
+    makeMenuItem(TEXT.MENU.DINE_ME.TITLE, TEXT.MENU.DINE_ME.PRICE, TEXT.MENU.DINE_ME.DESCRIPTION);
+    makeMenuItem(TEXT.MENU.INDULGE_ME.TITLE, TEXT.MENU.INDULGE_ME.PRICE, TEXT.MENU.INDULGE_ME.DESCRIPTION);
 }
 
 function createContactPage() {
@@ -124,6 +162,14 @@ function toggleButtons(button) {
     });
     button.classList.add('active');
     button.disabled = true;
+}
+
+function makeMenuItem(title, price, description) {
+    let menuTable = document.querySelector('.menu-table');
+    let menuItem = makeElement('div', ['menu-item'], null, menuTable);
+    makeElement('div', ['menu-title'], title, menuItem);
+    makeElement('div', ['menu-price'], price, menuItem);
+    makeElement('div', ['menu-description'], description, menuItem);
 }
 
 function makeElement(type, classes, text, parent) {
