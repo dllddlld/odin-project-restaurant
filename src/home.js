@@ -5,13 +5,13 @@ function createHomePage() {
     main.textContent = '';
 
     let hero = makeElement('div', ['hero'], null, main);
-    
+
     let slogan = makeElement('div', ['slogan'], null, hero);
     makeElement('h1', null, TEXT.COMPANY_SLOGAN, slogan);
     makeElement('p', null, TEXT.COMPANY_MISSION, slogan);
     let sloganButtonDiv = makeElement('div', null, null, slogan);
     let sloganButton = makeElement('button', ['get-started'], 'Get Started', sloganButtonDiv);
-    sloganButton.addEventListener('click', function() {
+    sloganButton.addEventListener('click', function () {
         let menuButton = document.querySelector('#button-menu');
         menuButton.click();
     });
@@ -29,9 +29,9 @@ function createHomePage() {
 
     let certifications = makeElement('div', ['certifications'], null, main);
     let certificationPoints = [
-        {imageSource: '../src/images/food-service.png', text: TEXT.FOOD_SERVICE_POINT},
-        {imageSource: '../src/images/vegan.png', text: TEXT.VEGAN_POINT},
-        {imageSource: '../src/images/vegetables-bag.png', text: TEXT.LOCAL_POINT},
+        { imageSource: '../src/images/food-service.png', text: TEXT.FOOD_SERVICE_POINT },
+        { imageSource: '../src/images/vegan.png', text: TEXT.VEGAN_POINT },
+        { imageSource: '../src/images/vegetables-bag.png', text: TEXT.LOCAL_POINT },
     ];
     certificationPoints.forEach(item => {
         let point = makeElement('div', ['point'], null, certifications);

@@ -2,19 +2,19 @@ const TEXT = {
     COMPANY_NAME: 'Gatsby\u2019s',
     COMPANY_SLOGAN: 'Let Us Serve You',
     COMPANY_MISSION: 'We strive to provide a space where guests can connect with themselves ' +
-    'and enjoy local delicacies.',
+        'and enjoy local delicacies.',
     CUSTOMER_BUBBLE: 'Voted best local venue of 2021',
     WINNER_BUBBLE: '2 Michelin stars \u2605\u2605',
     FOOD_SERVICE_POINT: 'Our servers practice social distancing to ensure you ' +
         'and your guests have a comfortable dining experience.',
     VEGAN_POINT: 'We try our best to accommodate our diners\' dietary requirements.',
-    LOCAL_POINT: 'We believe is supporting local farmers and producers. ' + 
+    LOCAL_POINT: 'We believe is supporting local farmers and producers. ' +
         'We strive to source locally whenever possible.',
     MENU: {
         SURPRISE_ME: {
             TITLE: 'Surprise Me',
             PRICE: '$65 per head',
-            DESCRIPTION: 'Our Surprise Me menu is a shared banquet-style feast ' + 
+            DESCRIPTION: 'Our Surprise Me menu is a shared banquet-style feast ' +
                 'that features a daily selection of the markets\' best and freshest, ' +
                 'selected by our executive chef. At least 3 dishes will be served for ' +
                 'each course and will include vegetable-based, seafood and meat options.'
@@ -72,11 +72,11 @@ function createHeader() {
 
     let navigation = makeElement('div', ['navigation'], null, header);
     let navOptions = makeElement('div', ['nav-options'], null, navigation);
-    
+
     let homeButton = makeElement('button', ['nav-page', 'active'], 'Home', navOptions);
     homeButton.id = 'button-home';
     let menuButton = makeElement('button', ['nav-page'], 'Menu', navOptions);
-    menuButton.id = 'button-menu';    
+    menuButton.id = 'button-menu';
     let contactButton = makeElement('button', ['nav-page'], 'Contact us', navOptions);
     contactButton.id = 'button-contact';
 }
