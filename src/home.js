@@ -1,4 +1,8 @@
 import { TEXT, makeElement } from "./page.js";
+import foodTableImage from '../src/images/food-table.jpg';
+import foodServiceImage from '../src/images/food-service.png';
+import veganImage from '../src/images/vegan.png';
+import veggieBagImage from '../src/images/vegetables-bag.png';
 
 function createHomePage() {
     let main = document.querySelector('main');
@@ -19,7 +23,7 @@ function createHomePage() {
     let heroImageContainer = makeElement('div', ['hero-image-container'], null, hero);
     let heroImageDiv = makeElement('div', ['hero-image'], null, heroImageContainer);
     let heroImage = makeElement('img', null, null, heroImageDiv);
-    heroImage.src = '../src/images/food-table.jpg';
+    heroImage.src = foodTableImage;
 
     let heroBubbleContainer = makeElement('div', ['hero-bubble-container'], null, heroImageContainer);
     let heroBubbleCustomer = makeElement('div', ['hero-bubble'], TEXT.CUSTOMER_BUBBLE, heroBubbleContainer);
@@ -29,9 +33,9 @@ function createHomePage() {
 
     let certifications = makeElement('div', ['certifications'], null, main);
     let certificationPoints = [
-        { imageSource: '../src/images/food-service.png', text: TEXT.FOOD_SERVICE_POINT },
-        { imageSource: '../src/images/vegan.png', text: TEXT.VEGAN_POINT },
-        { imageSource: '../src/images/vegetables-bag.png', text: TEXT.LOCAL_POINT },
+        { imageSource: foodServiceImage, text: TEXT.FOOD_SERVICE_POINT },
+        { imageSource: veganImage, text: TEXT.VEGAN_POINT },
+        { imageSource: veggieBagImage, text: TEXT.LOCAL_POINT }
     ];
     certificationPoints.forEach(item => {
         let point = makeElement('div', ['point'], null, certifications);
