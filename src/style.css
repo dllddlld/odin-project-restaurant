@@ -249,6 +249,15 @@ footer {
     padding: 0.5rem;
 }
 
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 /* --- buttons --- */
 
 button {

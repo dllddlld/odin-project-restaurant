@@ -1,5 +1,5 @@
 const TEXT = {
-    COMPANY_NAME: 'Gatsby\'s',
+    COMPANY_NAME: 'Gatsby\u2019s',
     COMPANY_SLOGAN: 'Let Us Serve You',
     COMPANY_MISSION: 'We strive to provide a space where guests can connect with themselves ' +
     'and explore their full potential.',
@@ -39,6 +39,20 @@ const TEXT = {
             'will be served throughout the course of 2-3 hours.'
         }
     },
+    CONTACT: {
+        LOCATION: {
+            TITLE: 'Location',
+            DESCRIPTION: '123 Main Street,\nPort Melbourne VIC 3207\nAustralia'
+        },
+        OPENING_HOURS: {
+            TITLE: 'Opening Hours',
+            DESCRIPTION: 'Thursday to Sunday\n12pm to midnight'
+        },
+        BOOKING: {
+            TITLE: 'Booking',
+            DESCRIPTION: 'Email: booking@gatsbys.com.au\nPhone: 01 9123 4567'
+        }
+    },
     GOODBYE: 'We hope to see you soon!'
 };
 
@@ -73,9 +87,12 @@ function createMain() {
 function createFooter() {
     let body = document.querySelector('body');
     let footer = makeElement('footer', null, null, body);
-    makeElement('div', null, 'Github repository', footer);
-    makeElement('div', null, 'Icons by icons8', footer);
-    makeElement('div', null, 'Photography by Brooke Lark', footer);
+    let repoLink = makeElement('a', null, 'Github repository', footer);
+    repoLink.href = 'https://github.com/dllddlld/odin-project-restaurant';
+    let iconsLink = makeElement('a', null, 'Icons by icons8', footer);
+    iconsLink.href = 'https://icons8.com/icon/set/food/ios';
+    let photographyLink = makeElement('a', null, 'Photography by Brooke Lark', footer);
+    photographyLink.href = 'https://unsplash.com/@brookelark';
 }
 
 function makeElement(type, classes, text, parent) {
