@@ -1,8 +1,8 @@
-import { TEXT, makeElement } from "./page.js";
-import foodTableImage from '../src/images/food-table.jpg';
-import foodServiceImage from '../src/images/food-service.png';
-import veganImage from '../src/images/vegan.png';
-import veggieBagImage from '../src/images/vegetables-bag.png';
+import { TEXT, makeElement } from './page';
+import foodTableImage from './images/food-table.jpg';
+import foodServiceImage from './images/food-service.png';
+import veganImage from './images/vegan.png';
+import veggieBagImage from './images/vegetables-bag.png';
 
 function createHomePage() {
     let main = document.querySelector('main');
@@ -15,7 +15,7 @@ function createHomePage() {
     makeElement('p', null, TEXT.COMPANY_MISSION, slogan);
     let sloganButtonDiv = makeElement('div', null, null, slogan);
     let sloganButton = makeElement('button', ['get-started'], 'Get Started', sloganButtonDiv);
-    sloganButton.addEventListener('click', function () {
+    sloganButton.addEventListener('click', () => {
         let menuButton = document.querySelector('#button-menu');
         menuButton.click();
     });
@@ -35,9 +35,9 @@ function createHomePage() {
     let certificationPoints = [
         { imageSource: foodServiceImage, text: TEXT.FOOD_SERVICE_POINT },
         { imageSource: veganImage, text: TEXT.VEGAN_POINT },
-        { imageSource: veggieBagImage, text: TEXT.LOCAL_POINT }
+        { imageSource: veggieBagImage, text: TEXT.LOCAL_POINT },
     ];
-    certificationPoints.forEach(item => {
+    certificationPoints.forEach((item) => {
         let point = makeElement('div', ['point'], null, certifications);
         let imageDiv = makeElement('div', null, null, point);
         let image = makeElement('img', null, null, imageDiv);
@@ -47,4 +47,4 @@ function createHomePage() {
     });
 }
 
-export { createHomePage };
+export default createHomePage;

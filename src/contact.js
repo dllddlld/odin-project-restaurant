@@ -1,4 +1,13 @@
-import { TEXT, makeElement } from "./page.js";
+import { TEXT, makeElement } from './page';
+
+function makeContactItem(title, description) {
+    let contactTable = document.querySelector('.contact-table');
+    let contactItem = makeElement('div', ['contact-item'], null, contactTable);
+    makeElement('div', ['contact-title'], title, contactItem);
+    let contactDescription = makeElement('div', ['contact-description'], null, contactItem);
+    let contactParagraph = makeElement('p', null, description, contactDescription);
+    contactParagraph.innerHTML = contactParagraph.innerHTML.replace(/\n/g, '<br />');
+}
 
 function createContactPage() {
     let main = document.querySelector('main');
@@ -16,13 +25,4 @@ function createContactPage() {
     makeElement('h1', null, TEXT.GOODBYE, contactGoodbye);
 }
 
-function makeContactItem(title, description) {
-    let contactTable = document.querySelector('.contact-table');
-    let contactItem = makeElement('div', ['contact-item'], null, contactTable);
-    makeElement('div', ['contact-title'], title, contactItem);
-    let contactDescription = makeElement('div', ['contact-description'], null, contactItem);
-    let contactParagraph = makeElement('p', null, description, contactDescription);
-    contactParagraph.innerHTML = contactParagraph.innerHTML.replace(/\n/g, '<br />');
-}
-
-export { createContactPage };
+export default createContactPage;
