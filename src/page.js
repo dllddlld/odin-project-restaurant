@@ -75,7 +75,6 @@ function makeElement(type, classes, text, parent) {
 }
 
 function createHeader() {
-    console.log('create header');
     let container = document.querySelector('.container');
     let header = makeElement('header', null, null, container);
     let logoDiv = makeElement('div', ['logo'], null, header);
